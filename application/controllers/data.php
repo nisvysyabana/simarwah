@@ -53,13 +53,17 @@ class data extends CI_Controller{
 	}
 
 	
-	// function resetpassword(){
-    //     $this->form_validation->set_rules('id_user', 'required');
-  	// 	$password = $this->input->post('password');
-	// 	{
-    //         $data ['password'] => $password,
-	//     }
-    //         $this->m_data->update_password($data,$id_user);
-    //         redirect('c_user/index');
-    // }
+	function resetpassword(){
+        $this->form_validation->set_rules('id_user', 'required');
+  		$password = $this->input->post('password');
+		{
+            $data ['password'] => $password,
+	    }
+            $this->m_data->update_password($data,$id_user);
+            redirect('c_user/index');
+    }
+    // nah tadinya kan func reset password di komen, skrang kan aku uncomment nih, nnti liat di github.
+    //heeh terus?
+    //udah stanby ? sambil makan aja sayang gapapa
+    //iyaah ini lg merhatiin sambil mam
 }
