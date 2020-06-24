@@ -71,12 +71,16 @@ class c_user extends CI_Controller
         $wakil_himp = $_POST['wakil_himp'];
         $bendahara_himp = $_POST['bendahara_himp'];
         $sekretaris_himp = $_POST['sekretaris_himp'];
-        $kode_himp = "HIMATIF";
+        $kode_himp = strtoupper($_POST['nm_himp']);
+        // $kode_bidang_anggota = strtoupper($_POST['kode_bidang_anggota']);
 
         //save bidang
 
         $nm_bidang = $_POST['nm_bidang'];
         $nm_ketua = $_POST['ketua_bidang'];
+        $kode_bidang = $_POST['nm_bidang'][0];
+        $kode_bidang_anggota = $_POST['nm_bidang'][0];
+
 
         //save anggota
 
@@ -91,32 +95,34 @@ class c_user extends CI_Controller
             'wakil_himp' => $wakil_himp,
             'sekretaris_himp' => $sekretaris_himp,
             'bendahara_himp' => $bendahara_himp,
-            'kode_himp' => "HIMATIF"
+            'kode_himp' => $kode_himp
         );
 
         $bidang = array();
+        $anggota = array();
         $index = 0;
         $index_2 = 0;
         foreach($nm_bidang as $bid){
             array_push($bidang, array(
                 'nm_bidang' => $bid,
                 'ketua_bidang' => $nm_ketua[$index],
-                'kode_bidang' => "PAO",   
+                'kode_bidang' => strtoupper($kode_bidang),   
             ));
             $index++;
         }
-        // foreach ($nm_anggota as $agt){
-        //         array_push($anggota, array(
-        //             'nm_anggota' => $nm_anggota[$index_2],
-        //             'kode_himp' => "HIMATIF",
-        //             'kode_bidang' => "kode_bidang"
-        //         ));
-        //         $index_2++;
-        //     }
+        foreach ($nm_anggota as $agt){
+            array_push($anggota, array(
+                    'nm_anggota' => $agt,
+                    'kode_himp' => $kode_himp,
+                    'kode_bidang' => strtoupper($kode_bidang_anggota),
+                ));
+            $index_2++;
+
+        }
 
         $datahimpunan = $this->M_data->save_himpunan($himpunan);
         $bidang = $this->M_data->save_bidang($bidang);
-        // $anggota = $this->M_data->save_anggota($anggota);
+        $anggota = $this->M_data->save_anggota($anggota);
     if($bidang && $datahimpunan){ // Jika sukses
       echo "<script>alert('Data berhasil disimpan');window.location = '".base_url('c_user/index')."';</script>";
     }else{ // Jika gagal

@@ -101,10 +101,13 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">   
                             <!-- <div class="content"> -->
                                 <h3>Tingkat IV (Nama Bidang Organisasi)</h3>
+                                <div id="insert-form" class="col-sm-12 col-md-12 col-lg-12">
+                                <input type="hidden" id="jumlah-form" value="1">
+                                </div>
                                 <button type="button" id="btn-tambah-form" style="margin-bottom: 30px;">Tambah Bidang</button>
-                                <button type="button" id="btn-reset-form" style="margin-bottom: 30px;">Hapus Bidang</button>
+                                <!-- <button type="button" id="btn-reset-form" style="margin-bottom: 30px;">Hapus Bidang</button> -->
 
-                                <br>
+                               <!--  <br>
                                 <div class="input">
                                     <input type="text" name="nm_bidang[]" placeholder="Nama Bidang" maxlength="400"
                                         autofocus style="width: 400px;height: 50px; margin-bottom: 30px;">
@@ -114,20 +117,16 @@
                                         autofocus style="width: 400px;height: 50px; margin-bottom: 30px;">
                                 </div>
                                 <div class="input">
-                                    <input type="text" name="nm_anggota[]" placeholder="Anggota" maxlength="400"
+                                        <input type="text" name="nm_anggota[]" placeholder="Anggota" maxlength="400"
                                         autofocus style="width: 400px;height: 50px; margin-bottom: 30px;">
                                 </div>
-                                <div id="add-anggota" class="input">
+                                <div id="add-anggota" class="input" style="margin-bottom: 30px">
                                 <input type="hidden" id="jumlah-anggota" value="1">
-                                </div>
-                                <button type="button" id="btn-tambah-anggota" style="margin-bottom: 30px;">Tambah Anggota</button>
-                                <button type="button" id="btn-reset-anggota" style="margin-bottom: 30px;">Hapus Anggota</button>
+                                </div> -->
+                                <!-- <button type="button" id="add" style="margin-bottom: 30px;">Tambah Anggota</button> -->
+                                <!-- <button type="button" id="btn-reset-anggota" style="margin-bottom: 30px;">Hapus Anggota</button> -->
                             <!-- </div> -->
                 </div>
-                <div id="insert-form" class="col-sm-12 col-md-12 col-lg-12">
-                <input type="hidden" id="jumlah-form" value="1">
-                </div>
-
                     <div class="row gtr-200">
                         <div class="col-2 col-12-medium">
                                 <p><button type="submit" class="btn btn-primary">Update</button></p>
@@ -137,64 +136,28 @@
                 </section>
 <script>
   $(document).ready(function(){ // Ketika halaman sudah diload dan siap
+    var i=0;
+    var z=i;
+    var j=0;
     $("#btn-tambah-form").click(function(){ // Ketika tombol Tambah Data Form di klik
-      var jumlah = parseInt($("#jumlah-form").val()); // Ambil jumlah data form pada textbox jumlah-form
-      var nextform = jumlah + 1; // Tambah 1 untuk jumlah form nya
-      
-      // Kita akan menambahkan form dengan menggunakan append
-      // pada sebuah tag div yg kita beri id insert-form
+        i++;
       $("#insert-form").append(
-        "<p>" + "Form Bidang Ke : "+nextform+ "</p>" +
-        "<br>" + 
-        "<div class=input>"+
-            "<input type=text name=nm_bidang[] placeholder=Nama Bidang Organisasi maxlength=400 autofocus style=width:400px;height: 50px; margin-bottom: 30px;>" + 
-        "</div>" +
-        "<br>" + 
-         "<div class=input>"+
-            "<input type=text name=ketua_bidang[] placeholder= Ketua maxlength=400 autofocus style=width:400px;height: 50px; margin-bottom: 30px;>" + 
-        "</div>" +
-        "<br>" + 
-         "<div class=input>"+
-            "<input type=text name=anggota_bidang[] placeholder= Anggota maxlength=400 autofocus style=width:400px;height: 50px; margin-bottom: 30px;>" + 
-        "</div>" +
-        "<br>" +
-        "<button type=button id=btn-tambah-anggota style=margin-bottom: 30px;>Tambah Anggota</button>" + 
-        "<button type=button id=btn-reset-anggota style=margin-bottom: 30px;>Hapus Anggota</button>" +
-        "<br>"
+        '<div id="formbidang'+i+'"" class="col-md-12"><div class="col-md-4"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">Remove Field</button></div><br><div class="input"><input type="text" name="nm_bidang[]" placeholder="Nama Bidang" maxlength="400"autofocus style="width: 400px;height: 50px; margin-bottom: 30px;text-transform:uppercase"></div><div class="input"><input type="text" name="ketua_bidang[]" placeholder="Ketua" maxlength="400"autofocus style="width: 400px;height: 50px; margin-bottom: 30px;"></div><button class="add" type="button" id="'+i+'" style="margin-bottom: 30px;">Tambah Anggota</button><div id="addanggota'+i+'" class="input" style="margin-bottom: 30px"></div><input type="hidden" id="jumlah-anggota" value="1"><hr></div>'
         );
-      
-      $("#jumlah-form").val(nextform); // Ubah value textbox jumlah-form dengan variabel nextform
     });
-    
-    // Buat fungsi untuk mereset form ke semula
-    $("#btn-reset-form").click(function(){
-      $("#insert-form").html(""); // Kita kosongkan isi dari div insert-form
-      $("#jumlah-form").val("1");// Ubah kembali value jumlah form menjadi 1
-    });
-  });
-  </script>
-  <script>
-  $(document).ready(function(){ // Ketika halaman sudah diload dan siap
-    $("#btn-tambah-anggota").click(function(){ // Ketika tombol Tambah Data Form di klik
-      var jumlah_anggota = parseInt($("#jumlah-anggota").val()); // Ambil jumlah data form pada textbox jumlah-form
-      var nextform_anggota = jumlah_anggota + 1; // Tambah 1 untuk jumlah form nya
-      
-      // Kita akan menambahkan form dengan menggunakan append
-      // pada sebuah tag div yg kita beri id insert-form
-      $("#add-anggota").append(
-         "<div class=input>"+
-            "<input type=text name=anggota_bidang[] placeholder= Anggota maxlength=400 autofocus style=width:400px;height: 50px; margin-bottom: 30px;>" + 
-        "</div>" + 
-        "<br>"
-        );
-      
-      $("#jumlah-anggota").val(nextform); // Ubah value textbox jumlah-form dengan variabel nextform
-    });
-    
-    // Buat fungsi untuk mereset form ke semula
-    $("#btn-reset-anggota").click(function(){
-      $("#add-anggota").html(""); // Kita kosongkan isi dari div insert-form
-      $("#jumlah-anggota").val("1");// Ubah kembali value jumlah form menjadi 1
+      $(document).on('click', '.btn_remove', function(){
+        var button_id = $(this).attr("id"); 
+        $('#formbidang'+button_id+'').remove();});
+
+      $(document).on('click', '.btn_remove_anggota', function(){
+        var button_id = $(this).attr("id"); 
+        $('#row'+button_id+'').remove();});
+
+      $(document).on('click', '.add', function(){
+        var button_id_anggota = $(this).attr("id"); 
+        // $('#formbidang'+button_id+'').remove();
+        z++;
+        $('#addanggota'+button_id_anggota+'').append('<tr id="row'+z+'"><td><input type="text" name="nm_anggota[]" placeholder="Nama Anggota" class="input" style="width:400px";"height: 50px"; "margin-bottom: 30px"; /></td><td><button type="button" name="remove" id="'+z+'" class="btn btn-danger btn_remove_anggota">X</button></td><br></tr>');
     });
   });
   </script>
