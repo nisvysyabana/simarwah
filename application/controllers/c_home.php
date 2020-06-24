@@ -55,4 +55,8 @@ class c_home extends CI_Controller
 	{
 		$this->load->view('ukmaja');
 	}
+	public function tampildata()
+	{
+		$this->load->view('tampildata');
+	}
 }

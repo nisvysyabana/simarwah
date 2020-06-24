@@ -369,7 +369,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <img src="<?php echo base_url('assets/img/uinn.png')?>" style="width:150px;height:150px; margin: 10px;">
+              <img src="<?php echo base_url('assets/img/uinlogo.png')?>" style="width:150px;height:150px; margin: 10px;">
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">

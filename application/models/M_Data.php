@@ -1,7 +1,5 @@
 <?php 
-
 class M_data extends CI_Model{
-	
 
 	function cek_login($table,$where){
 		return $this->db->get_where($table,$where);
@@ -11,9 +9,19 @@ class M_data extends CI_Model{
 		return $this->db->get('user');
 	}
 
-  
-  	public function save_batch($data){
-    return $this->db->insert_batch('data_ormawa', $data);
-  	}
+ 	public function save_batch($data){
+		return $this->db->insert_batch('data_ormawa', $data);
+ 	}
 
-}
+	function save_himpunan($data){
+		return $this->db->insert('himpunan',$data);
+	}
+
+	function save_bidang($data){
+		return $this->db->insert_batch('bidang',$data);
+	}
+
+	function save_anggota($data){
+		return $this->db->insert_batch('anggota',$data);
+	}
+} 

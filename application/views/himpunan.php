@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>simarwa</title>
+  <title>SIMARWAH</title>
   <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords"
     content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
@@ -33,7 +33,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">SI<span class="logo-dec">MARWA</span></a>
+            <a class="navbar-brand">SI<span class="logo-dec">MARWAH</span></a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
@@ -286,11 +286,11 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <img src="assets/img/uinn.png" style="width:150px;height:150px; margin: 10px;">
+              <img src="<?php echo base_url('assets/img/uinlogo.png') ?>" style="width:110px;height:160px; margin: auto;">
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-              <h3 style="font-size: 30px;">SI<span class="logo-dec">MARWA</span></h3>
+              <h3 style="font-size: 30px;">SI<span class="logo-dec">MARWAH</span></h3>
               <ul>
                 <li><a href="https://uinsgd.ac.id">UIN Sunan Gunung Djati</a></li>
                 <li>
@@ -305,7 +305,7 @@
             <div class="col-lg-4 col-sm-4 col-xs-4">
               <ul>
                 <li>
-                  <h5> <a href="<?php echo base_url().'c_home/index';?>">Tentang SIMARWA</a> </h5>
+                  <h5> <a href="<?php echo base_url().'c_home/index';?>">Tentang SIMARWAH</a> </h5>
                 </li>
                 <li>
                   <h5><a href="#">Panduan</a> </h5>
