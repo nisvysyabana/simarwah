@@ -51,15 +51,4 @@ class data extends CI_Controller{
 		$this->session->sess_destroy();
 		redirect(base_url('c_home/login'));
 	}
-
-	
-	// function resetpassword(){
-    //     $this->form_validation->set_rules('id_user', 'required');
-  	// 	$password = $this->input->post('password');
-	// 	{
-    //         $data ['password'] => $password,
-	//     }
-    //         $this->m_data->update_password($data,$id_user);
-    //         redirect('c_user/index');
-    // }
 }
