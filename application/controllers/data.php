@@ -25,12 +25,15 @@ class data extends CI_Controller{
 			'password' => md5($password),
 			);
 		$cek = $this->M_data->cek_login("user",$where);
+		// print_r($cek);
+		// exit();
 		if($cek -> num_rows() == 1){
 			foreach ($cek->result() as $session) {
 				$sess_data['username'] = $session->username;
 				$sess_data['role'] = $session->role;
-				$sess_data['status'] = 'login';
-				$this->session->set_userdata($data_session);
+				$sess_data['kode_himp_sess'] = $session->kode_himp;
+				$sess_data['status'] = "login";
+				$this->session->set_userdata($sess_data);
 			}
 			if($sess_data['username']){
 				// cek role
